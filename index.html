@@ -10,13 +10,12 @@
 
         /* Importa las fuentes de Google Fonts al principio */
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-        /* Para títulos, si la usas */
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-        /* Para texto general */
 
-        /* Estilos generales para la página de sorpresa */
+        /* ---------------------------------------------------- */
+        /* Estilos Generales y del Body */
+        /* ---------------------------------------------------- */
         body {
-            /* CAMBIO AQUÍ: Nuevo degradado de colores amorosos */
             background: linear-gradient(135deg, #FFD1DC, #FFABAB, #FFEBCD);
             /* Rosa Pastel, Rojo Suave, Beige Rosado */
             min-height: 100vh;
@@ -25,132 +24,54 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            /* Padding general para que no se pegue a los bordes de la pantalla */
             box-sizing: border-box;
             color: #333;
-            /* Texto oscuro para contrastar con el fondo claro */
             text-align: center;
             font-family: 'Quicksand', sans-serif;
-            /* Aplica Quicksand al cuerpo general */
+            overflow-x: hidden;
+            /* Evita el scroll horizontal en caso de desbordamiento */
         }
 
+        /* ---------------------------------------------------- */
+        /* Estilos del Encabezado (h2 y p) */
+        /* ---------------------------------------------------- */
         .surprise-header {
             margin-bottom: 30px;
+            padding: 0 15px;
+            /* Pequeño padding para móviles */
         }
 
         .surprise-header h2 {
             font-size: 2.8em;
-            /* CAMBIO AQUÍ: Aplica la fuente Pacifico al h2 */
             font-family: 'Pacifico', cursive;
             color: #E91E63;
-            /* Un rosa vibrante para el título */
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            /* Sombra para que resalte */
+            line-height: 1.2;
+            /* Asegura un buen espaciado de línea en títulos largos */
         }
 
         .surprise-header p {
             font-size: 1.2em;
             opacity: 0.9;
-            /* CAMBIO AQUÍ: Aplica la fuente Quicksand al p general */
             font-family: 'Quicksand', sans-serif;
             color: #6A0527;
-            /* Un color de texto más oscuro pero cálido */
-        }
-
-        /* Contenedor del carrusel de meses */
-        .month-carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 650px;
+            max-width: 800px;
+            /* Limita el ancho para que el texto no sea demasiado largo en pantallas grandes */
             margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(255, 255, 255, 0.4);
-            /* Fondo más claro y translúcido */
-            padding: 20px;
-            border-radius: 20px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            /* Sombra más suave */
+            /* Centra el párrafo */
         }
 
-        /* Contenedor de la tarjeta del mes actual */
-        .month-card-wrapper {
-            background-color: rgba(255, 255, 255, 0.95);
-            color: #333;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            flex-grow: 1;
-            margin: 0 50px;
-            min-height: 350px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            border-top: 5px solid;
-            /* Ajuste la transición para el efecto de "salida" */
-            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.6s ease;
-            /* La transformación inicial es 0, las funciones de JS la cambiarán */
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        /* Estilos para el título del mes dentro del cuadro */
-        .month-card-wrapper h3 {
-            font-family: 'Pacifico', cursive;
-            /* O la fuente que hayas elegido */
-            font-size: 2.5em;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #e91e63;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Estilos para la descripción del mes */
-        .month-card-wrapper p {
-            font-family: 'Quicksand', sans-serif;
-            /* O la fuente que hayas elegido */
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 0;
-            overflow-y: auto;
-            max-height: 200px;
-            padding-right: 5px;
-            text-align: left;
-            width: 100%;
-        }
-
-        /* Estilo para la barra de desplazamiento si quieres personalizarla */
-        .month-card-wrapper p::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .month-card-wrapper p::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .month-card-wrapper p::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-
-        .month-card-wrapper p::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-
-        /* Botones de navegación (izquierda y derecha) */
+        /* ---------------------------------------------------- */
+        /* Contenedor del Carrusel de Meses */
+        /* ---------------------------------------------------- */
         .month-carousel-container {
             position: relative;
-            /* ¡ASEGÚRATE DE QUE ESTÉ EN RELATIVE! */
             width: 100%;
+            /* Ocupa todo el ancho disponible */
             max-width: 650px;
+            /* Limita el ancho máximo en pantallas grandes */
             margin: 0 auto;
             display: flex;
             align-items: center;
@@ -161,11 +82,13 @@
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            min-height: 400px;
+            /* Altura mínima para que siempre se vea el contenedor */
         }
 
-        /* ... (Resto de tus estilos, incluyendo los de .month-card-wrapper) ... */
-
-        /* Botones de navegación (izquierda y derecha) */
+        /* ---------------------------------------------------- */
+        /* Botones de Navegación */
+        /* ---------------------------------------------------- */
         .nav-button {
             background-color: rgba(255, 200, 220, 0.9);
             color: #A30E44;
@@ -181,33 +104,26 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
             position: absolute;
-            /* Ajusta estos valores para separarlos un poco del borde del contenedor */
+            /* Posicionado absolutamente con respecto a .month-carousel-container */
             top: 50%;
-            /* Centra verticalmente */
             transform: translateY(-50%);
-            /* Ajuste para un centrado perfecto */
             z-index: 10;
         }
 
         .prev-button {
             left: -25px;
-            /* Ajusta la posición a la izquierda, fuera del padding del contenedor */
+            /* Para pantallas grandes, se mantiene fuera */
         }
 
         .next-button {
             right: -25px;
-            /* Ajusta la posición a la derecha, fuera del padding del contenedor */
+            /* Para pantallas grandes, se mantiene fuera */
         }
 
-
         .nav-button:hover {
-            /* Colores al pasar el ratón: un rosa ligeramente más intenso o un tono amoroso alternativo */
             background-color: #FFC0CB;
-            /* Pink - Un rosa ligeramente más fuerte */
-            /* Hacemos que se haga un poco más grande al pasar el ratón */
-            /*transform: scale(1.1);*/
+            transform: scale(1.1);
             color: #880E4F;
-            /* Un rosa/púrpura oscuro para el texto, que combine mejor */
         }
 
         .nav-button:active {
@@ -215,305 +131,320 @@
         }
 
         .nav-button:disabled {
-            /* Un poco más de opacidad para que se sigan viendo los colores suaves */
             opacity: 0.6;
             cursor: not-allowed;
             box-shadow: none;
             transform: none;
-            /* Color deshabilitado más tenue del rosa suave */
             background-color: rgba(255, 200, 220, 0.5);
             color: #CCC;
-            /* Color gris claro para el texto */
         }
 
+        /* ---------------------------------------------------- */
+        /* Estilos de la Tarjeta del Mes (General) */
+        /* ---------------------------------------------------- */
+        .month-card-wrapper {
+            width: 100%;
+            /* Ocupa el 100% del ancho de su contenedor (.month-carousel-container) */
+            max-width: 550px;
+            /* Limita el ancho máximo de la tarjeta */
+            height: auto;
+            /* Altura automática según el contenido */
+            min-height: 350px;
+            /* Altura mínima para evitar que sea demasiado pequeña */
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Centra el contenido verticalmente */
+            align-items: center;
+            /* Centra el contenido horizontalmente */
+            text-align: center;
+            border-top: 8px solid;
+            /* Borde superior que cambia por mes */
+            opacity: 1;
+            /* Asegura que sea visible por defecto */
+            transform: translateX(0) scale(1);
+            /* Reset de transformaciones */
+            box-sizing: border-box;
+            /* Incluye padding y border en el width/height */
+            position: static;
+            /* Asegura que no interfiera con el posicionamiento de los botones */
+            margin: 0 10px;
+            /* Pequeño margen para que no se pegue a los botones si están dentro del contenedor */
+        }
+
+        .month-card-wrapper h3 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .month-card-wrapper p {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 0;
+            white-space: pre-wrap;
+            /* Mantiene saltos de línea del HTML */
+        }
+
+        /* ---------------------------------------------------- */
+        /* Estilos Personalizados para Cada Mes (sin animaciones) */
+        /* ---------------------------------------------------- */
+
+        /* DICIEMBRE: NAVIDAD 🎄✨ */
         .month-card-wrapper.diciembre {
             border-color: #C0392B;
-            /* Rojo navideño oscuro para el borde */
             background: linear-gradient(135deg, rgba(231, 76, 60, 0.95), rgba(192, 57, 43, 0.95));
-            /* Degradado de rojos festivos */
             color: #F8F8F8;
-            /* Blanco suave para el texto, como nieve o luz */
             box-shadow: 0 10px 30px rgba(231, 76, 60, 0.7),
-                /* Sombra roja brillante y festiva */
                 0 0 25px rgba(255, 223, 0, 0.5) inset;
-            /* Brillo interno dorado, como luces navideñas */
-            transform: scale(1.03);
-            /* Ligeramente más grande, para un efecto de calidez y presencia */
-            animation: pulseChristmas 2s infinite alternate ease-in-out;
-            /* Animación de pulsación suave para un brillo festivo */
+            transform: scale(1);
         }
 
-        /* Ajustes de fuente y color para el contenido de Diciembre */
         .month-card-wrapper.diciembre h3 {
             color: #2ECC71;
-            /* Verde esmeralda para el título, clásico navideño */
             text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-            /* Sombra para que destaque */
         }
 
         .month-card-wrapper.diciembre p {
-            font-size: 1.1em;
             color: #ECF0F1;
-            /* Gris muy claro, casi blanco, para la descripción */
         }
 
-        /* Definición de la animación de "pulsación navideña" */
-        @keyframes pulseChristmas {
-            0% {
-                transform: scale(1.03);
-                box-shadow: 0 10px 30px rgba(231, 76, 60, 0.7);
-            }
-
-            50% {
-                transform: scale(1.04);
-                box-shadow: 0 12px 35px rgba(231, 76, 60, 0.9);
-            }
-
-            100% {
-                transform: scale(1.03);
-                box-shadow: 0 10px 30px rgba(231, 76, 60, 0.7);
-            }
-        }
-
-
-        /* --- ENERO: AMOR CON ROSA INTENSO ❤️‍🔥 --- */
+        /* ENERO: AMOR CON ROSA INTENSO ❤️‍🔥 */
         .month-card-wrapper.enero {
             border-color: #FF1493;
-            /* Deep Pink - Rosa más intenso que el de Mayo */
             background: linear-gradient(135deg, rgba(255, 200, 230, 0.95), rgba(255, 170, 200, 0.95));
-            /* Degradado con tonos más intensos */
             color: #6A0527;
-            /* Mantenemos el texto borgoña para legibilidad */
             box-shadow: 0 10px 30px rgba(255, 20, 147, 0.6),
-                /* Sombra rosa intenso */
                 0 0 20px rgba(255, 20, 147, 0.3) inset;
-            /* Brillo interno rosa intenso */
-            transform: scale(1.02);
-            /* Mantenemos la ligera escala */
-            animation: pulseLove 2s infinite alternate ease-in-out;
-            /* Mantenemos la animación de pulsación */
+            transform: scale(1);
         }
 
         .month-card-wrapper.enero h3 {
             color: #E91E63;
-            /* Rosa vibrante para el título */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .month-card-wrapper.enero p {
-            font-size: 1.1em;
             color: #880E4F;
-            /* Tono de rosa/púrpura oscuro para la descripción */
         }
 
-
-        /* --- FEBRERO: AMOR CON ROSA ROJIZO (PASIÓN) ❤️‍🔥 --- */
+        /* FEBRERO: AMOR CON ROSA ROJIZO (PASIÓN) ❤️‍🔥 */
         .month-card-wrapper.febrero {
             border-color: #DC143C;
-            /* Crimson - Un rojo-rosa profundo, más pasional */
             background: linear-gradient(135deg, rgba(255, 180, 190, 0.95), rgba(255, 150, 160, 0.95));
-            /* Degradado con tonos más rojizos */
             color: #6A0527;
-            /* Mantenemos el texto borgoña */
             box-shadow: 0 10px 30px rgba(220, 20, 60, 0.6),
-                /* Sombra rojiza */
                 0 0 20px rgba(220, 20, 60, 0.3) inset;
-            /* Brillo interno rojizo */
-            transform: scale(1.02);
-            /* Mantenemos la ligera escala */
-            animation: pulseLove 2s infinite alternate ease-in-out;
-            /* Mantenemos la animación de pulsación */
+            transform: scale(1);
         }
 
         .month-card-wrapper.febrero h3 {
             color: #C2185B;
-            /* Un rosa oscuro casi rojo para el título */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .month-card-wrapper.febrero p {
-            font-size: 1.1em;
             color: #880E4F;
-            /* Tono de rosa/púrpura oscuro para la descripción */
         }
 
-
-
-        /* --- MARZO: EL MES DEL CAOS Y LA GUERRA (SIN FUEGO) --- */
+        /* MARZO: EL MES DEL CAOS Y LA GUERRA */
         .month-card-wrapper.marzo {
             border-color: #FF0000;
-            /* Volvemos a un rojo vivo para el borde */
             background-color: rgba(40, 0, 0, 0.9);
-            /* Fondo oscuro, pero menos extremo */
             color: #FF7F50;
-            /* Un coral más suave que el naranja alarma */
             box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
-            /* Una sombra más sutil */
-            /*animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) infinite alternate;*/
-            /* Mantenemos el temblor si aún lo deseas */
             filter: saturate(1.1) contrast(1.1) brightness(1);
-            /* Filtros más neutros */
             border-image: none;
-            /* Eliminamos el borde de imagen */
             border-width: 5px;
             border-style: solid;
             transform: scale(1);
-            /* Volvemos a la escala normal */
             overflow: visible;
-            /* Permitimos que el contenido desborde si es necesario */
             position: relative;
-            /* Mantenemos relative para el flujo normal */
         }
 
-        /* Reducir el tamaño de la fuente para descripciones largas en Marzo, si es necesario */
         .month-card-wrapper.marzo p {
             font-size: 1.09em;
             color: #ffe2e2;
             text-shadow: none;
-            /* Quitamos la sombra de texto */
             position: static;
-            /* Volvemos a la posición estática */
             z-index: auto;
-            /* Z-index automático */
         }
 
-        /* Cambiar el color del título del mes en Marzo y asegurar su posición */
         .month-card-wrapper.marzo h3 {
             color: #FF6347;
-            /* Un color de título acorde al nuevo tono */
             position: static;
-            /* Volvemos a la posición estática */
             z-index: auto;
-            /* Z-index automático */
         }
 
-        /* --- ABRIL: EL MES AZUL 💙 --- */
+        /* ABRIL: EL MES AZUL 💙 */
         .month-card-wrapper.abril {
             border-color: #4682B4;
-            /* Steel Blue - Un azul medio, robusto */
             background: linear-gradient(135deg, rgba(173, 216, 230, 0.95), rgba(135, 206, 250, 0.95));
-            /* Degradado de azules claros a cielo */
             color: #003366;
-            /* Azul oscuro casi marino para el texto, elegante y legible */
             box-shadow: 0 10px 30px rgba(70, 130, 180, 0.6),
-                /* Sombra azul que da profundidad */
                 0 0 20px rgba(70, 130, 180, 0.3) inset;
-            /* Brillo interno azulado */
-            transform: scale(1.01);
-            /* Ligeramente más grande, para un efecto sutil */
-            /* Podríamos añadir una animación de onda suave si fuera necesario, pero por ahora lo dejamos estático */
-            /* animation: pulseBlue 3s infinite alternate ease-in-out; */
+            transform: scale(1);
         }
 
-        /* Ajustes de fuente y color para el contenido de Abril */
         .month-card-wrapper.abril h3 {
             color: #1E90FF;
-            /* Dodger Blue - Un azul vibrante para el título */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            /* Sombra sutil para profundidad */
         }
 
         .month-card-wrapper.abril p {
-            font-size: 1.1em;
             color: #005691;
-            /* Un azul más oscuro para la descripción */
         }
 
-        /* --- MAYO: EL MES DEL AMOR ❤️ --- */
+        /* MAYO: EL MES DEL AMOR ❤️ */
         .month-card-wrapper.mayo {
             border-color: #FF69B4;
-            /* Rosa cálido o fucsia para un borde amoroso */
             background: linear-gradient(135deg, rgba(255, 230, 240, 0.95), rgba(255, 200, 220, 0.95));
-            /* Un degradado suave de rosas y rojos claros */
             color: #6A0527;
-            /* Un color de texto borgoña o vino, elegante y legible */
             box-shadow: 0 10px 30px rgba(255, 105, 180, 0.6),
-                /* Sombra rosa suave y brillante */
                 0 0 20px rgba(255, 105, 180, 0.3) inset;
-            /* Brillo interno que da calidez */
-            transform: scale(1.02);
-            /* Ligeramente más grande, como si "flotara" con amor */
-            animation: pulseLove 2s infinite alternate ease-in-out;
-            /* Una pulsación suave */
+            transform: scale(1);
         }
 
-        /* Ajustes de fuente y color para el contenido de Mayo */
         .month-card-wrapper.mayo h3 {
             color: #E91E63;
-            /* Un rosa vibrante para el título, muy romántico */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            /* Sombra sutil para el título */
         }
 
         .month-card-wrapper.mayo p {
             font-size: 1.1em;
             color: #880E4F;
-            /* Un tono de rosa/púrpura más oscuro para la descripción, cálido y legible */
         }
-
-        /* Definición de la animación de "pulsación de amor" */
-        @keyframes pulseLove {
-            0% {
-                transform: scale(1.02);
-                box-shadow: 0 10px 30px rgba(255, 105, 180, 0.6);
-            }
-
-            50% {
-                transform: scale(1.03);
-                box-shadow: 0 12px 35px rgba(255, 105, 180, 0.8);
-            }
-
-            100% {
-                transform: scale(1.02);
-                box-shadow: 0 10px 30px rgba(255, 105, 180, 0.6);
-            }
-        }
-
 
         .month-card-wrapper.junio {
             border-color: #e91e63;
+            transform: scale(1);
         }
 
-        /* ... (El resto de tus media queries y otros estilos) ... */
 
-        .back-to-game-button {
-            background-color: #ffcc80;
-            color: #a30e44;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-top: 40px;
-            display: inline-block;
-        }
+        /* ---------------------------------------------------- */
+        /* MEDIA QUERIES PARA RESPONSIVIDAD (MÓVILES) */
+        /* ---------------------------------------------------- */
 
-        .back-to-game-button:hover {
-            background-color: #ffb74d;
-            transform: translateY(-2px);
-        }
-
-        /* Media queries para responsividad */
+        /* Estilos para pantallas pequeñas (hasta 768px de ancho, típico para tabletas en vertical y todos los móviles) */
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .surprise-header h2 {
+                font-size: 2.2em;
+            }
+
+            .surprise-header p {
+                font-size: 1em;
+            }
+
+            .month-carousel-container {
+                padding: 15px;
+                max-width: 95%;
+                min-height: 300px;
+            }
+
+            /* ************************************************* */
+            /* *** MODIFICACIÓN CLAVE PARA LOS BOTONES EN MÓVILES *** */
+            /* ************************************************* */
+            .nav-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.8em;
+                /* Reajusta el posicionamiento para que no se superpongan */
+                /* Los movemos ligeramente hacia adentro o a 0 de distancia del borde */
+                left: 0px;
+                /* Botón izquierdo al borde izquierdo del contenedor */
+                right: 0px;
+                /* Esto no importa para .prev-button, pero es un reset para .nav-button */
+            }
+
+            .prev-button {
+                left: 0px;
+                /* Asegura que esté justo al borde izquierdo del contenedor del carrusel */
+                right: auto;
+                /* Reset para que no interfiera el 'right' genérico de .nav-button */
+            }
+
+            .next-button {
+                right: 0px;
+                /* Asegura que esté justo al borde derecho del contenedor del carrusel */
+                left: auto;
+                /* Reset para que no interfiera el 'left' genérico de .nav-button */
+            }
+
+            /* ************************************************* */
+
+
+            /* Ajuste de la tarjeta del mes para móviles */
+            .month-card-wrapper {
+                padding: 20px;
+                max-width: 100%;
+                min-height: 280px;
+                border-width: 4px;
+                margin: 0 5px;
+                /* Reducir el margen entre la tarjeta y los botones para aprovechar el espacio */
+            }
+
+            .month-card-wrapper h3 {
+                font-size: 1.8em;
+                margin-bottom: 10px;
+            }
+
+            .month-card-wrapper p {
+                font-size: 0.95em;
+            }
+        }
+
+        /* Estilos para pantallas muy pequeñas (ej. iPhone SE, ancho < 480px) */
+        @media (max-width: 480px) {
             .surprise-header h2 {
                 font-size: 2em;
             }
 
-            .month-carousel-container {
-                flex-direction: column;
-                margin-left: 0;
-                margin-right: 0;
+            .surprise-header p {
+                font-size: 0.9em;
             }
 
             .nav-button {
-                position: static;
-                margin: 10px auto;
+                width: 35px;
+                height: 35px;
+                font-size: 1.5em;
+                /* Mantener left/right a 0px para que no se superpongan */
+                left: 0px;
+                right: 0px;
+            }
+
+            .prev-button {
+                left: 0px;
+                right: auto;
+            }
+
+            .next-button {
+                right: 0px;
+                left: auto;
             }
 
             .month-card-wrapper {
-                margin: 0 10px;
-                width: calc(100% - 20px);
+                padding: 15px;
+                min-height: 250px;
+                margin: 0 3px;
+                /* Margen aún más pequeño para pantallas muy estrechas */
+            }
+
+            .month-card-wrapper h3 {
+                font-size: 1.6em;
+            }
+
+            .month-card-wrapper p {
+                font-size: 0.85em;
             }
         }
     </style>
@@ -538,7 +469,7 @@
     </div>
 
     <script>
-        // --- DATA DE LOS MESES (Originalmente del Python, ahora en JavaScript) ---
+        // --- DATA DE LOS MESES ---
         const sorpresasMensualesData = [
             {
                 "mes": "Introducción", "descripcion": `Waos… ¡6 benditos meses! 💫 Seis meses de amor, de guerras, de reconciliaciones, de besos robados y abrazos infinitos 🤍. 
@@ -673,50 +604,39 @@
             prevMonthBtn = document.getElementById('prev-month-btn');
             nextMonthBtn = document.getElementById('next-month-btn');
 
-            // Función para mostrar el mes actual
-            function displayMonth(index, direction = 0) { // direction: 0 = no anim, -1 = prev, 1 = next
+            // Función para mostrar el mes actual (SIMPLIFICADA)
+            function displayMonth(index) {
                 if (index >= 0 && index < sorpresasMensualesData.length) {
                     const monthData = sorpresasMensualesData[index];
 
-                    // Aplicar animación de salida
-                    if (direction !== 0) {
-                        monthCardDisplay.style.transform = `translateX(${direction * -100}%)`;
-                        monthCardDisplay.style.opacity = '0';
-                    }
+                    // Limpiar clases anteriores del mes y añadir la nueva
+                    // Reemplazamos espacios por guiones para las clases CSS
+                    monthCardDisplay.className = 'month-card-wrapper'; // Resetea todas las clases
+                    monthCardDisplay.classList.add(monthData.mes.toLowerCase().replace(/\s/g, '-'));
 
-                    setTimeout(() => {
-                        // Limpiar clases anteriores del mes y añadir la nueva
-                        monthCardDisplay.className = 'month-card-wrapper';
-                        monthCardDisplay.classList.add(monthData.mes.toLowerCase().replace(/\s/g, '-')); // 'Introducción' -> 'introduccion'
+                    // Actualizar el contenido de la tarjeta
+                    monthTitle.textContent = monthData.mes;
+                    monthDescription.textContent = monthData.descripcion;
 
-                        // Actualizar el contenido de la tarjeta
-                        monthTitle.textContent = monthData.mes;
-                        monthDescription.textContent = monthData.descripcion;
-
-                        // Deshabilitar/habilitar botones de navegación
-                        prevMonthBtn.disabled = (index === 0);
-                        nextMonthBtn.disabled = (index === sorpresasMensualesData.length - 1);
-
-                        // Aplicar animación de entrada
-                        monthCardDisplay.style.transform = 'translateX(0)';
-                        monthCardDisplay.style.opacity = '1';
-                    }, direction !== 0 ? 500 : 0); // Esperar la transición si hay animación
+                    // Deshabilitar/habilitar botones de navegación
+                    prevMonthBtn.disabled = (index === 0);
+                    nextMonthBtn.disabled = (index === sorpresasMensualesData.length - 1);
                 }
             }
 
-            // Función para ir al mes anterior
+            // Función para ir al mes anterior (SIMPLIFICADA)
             function goToPrevMonth() {
                 if (currentMonthIndex > 0) {
                     currentMonthIndex--;
-                    displayMonth(currentMonthIndex, -1);
+                    displayMonth(currentMonthIndex); // Llama directamente sin animaciones
                 }
             }
 
-            // Función para ir al mes siguiente
+            // Función para ir al mes siguiente (SIMPLIFICADA)
             function goToNextMonth() {
                 if (currentMonthIndex < sorpresasMensualesData.length - 1) {
                     currentMonthIndex++;
-                    displayMonth(currentMonthIndex, 1);
+                    displayMonth(currentMonthIndex); // Llama directamente sin animaciones
                 }
             }
 
